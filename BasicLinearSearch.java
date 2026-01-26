@@ -1,8 +1,6 @@
-// DemoCode file (For Execution check & Testings)
-
 import java.util.Scanner;
 
-public class DemoCode {
+public class BasicLinearSearch {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
