@@ -1,8 +1,5 @@
-// DemoCode file (For Execution check & Testings)
-
-// s
 import java.util.Arrays;
-public class DemoCode {
+public class FirstAndLastPositionOfNumUsingBinarySearch {
     public static void main(String[] args) {
         int[] arr = {5,7,7,8,8,10};
         int toFind = 8;
