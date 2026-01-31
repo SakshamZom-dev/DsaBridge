@@ -1,37 +1,44 @@
 // DemoCode file (For Execution check & Testings)
 
-// s
-import java.util.Arrays;
+// Binary Search in a mountain array using order agnostic Binary search
 public class DemoCode {
     public static void main(String[] args) {
-        int[] arr = {5,7,7,8,8,10};
-        int toFind = 8;
-        System.out.println("Smallest & greatest indices where no. was found: \t" + Arrays.toString(searchRange(arr, toFind)));
+        int[] arr = {4,5,6,7,0,1,2};
+        int toFind = 1;
+        System.out.println(search(arr, toFind));
     }
 
-    static int[] searchRange(int[] nums, int target) {
-        int[] ans = {-1,-1};
-        int start = search(nums, target, true);
-        int end = search(nums, target, false);
-        ans[0] = start;
-        ans[1] = end;
-        return ans;
+    static int search(int[] nums, int target){
+        int pivot = findPivot(nums);
+        int firstTry = binarySearch(nums, target, 0, pivot);
+        if (firstTry != -1) return firstTry;
+        return binarySearch(nums, target, pivot + 1, nums.length - 1);
     }
 
-    static int search(int arr[], int target, boolean findStartIndex){
-        int ans = -1;
+
+    // Not Done...
+    static int findPivot(int[] arr) {
         int start = 0;
         int end = arr.length - 1;
+        while (start < end) {
+            int mid = start + (end - start) / 2;
+            if (arr[mid] > arr[mid + 1]) {  // descending
+                end = mid;
+            }
+            else {  // ascending
+                start = mid + 1;
+            }
+        }
+        return start;
+    }
+
+    static int binarySearch(int arr[], int target, int start, int end){
         while (start <= end) {
             int mid = start + (end - start) / 2;
             if (target < arr[mid]) end = mid - 1;
             else if (target > arr[mid]) start = mid + 1;
-            else {
-                ans = mid;
-                if (findStartIndex) end = mid - 1;
-                else start = mid + 1;
-            }
+            else return mid;
         }
-        return ans;
+        return -1;
     }
 }
