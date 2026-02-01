@@ -1,7 +1,5 @@
-// DemoCode file (For Execution check & Testings)
-
 // Binary Search in a Rotated array containing duplicates by finding pivot (peak) using order Binary search
-public class DemoCode {
+public class BinarySearchInRotatedArrayWithDuplicates {
     public static void main(String[] args) {
         int[] arr = {4,5,6,7,0,1,2};
         int toFind = 1;
