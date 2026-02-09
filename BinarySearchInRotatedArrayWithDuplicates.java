@@ -1,4 +1,5 @@
 // Binary Search in a Rotated array containing duplicates by finding pivot (peak) using order Binary search
+// Not Practiced (Just written correctly)
 public class BinarySearchInRotatedArrayWithDuplicates {
     public static void main(String[] args) {
         int[] arr = {4,5,6,7,0,1,2};

@@ -10,9 +10,16 @@ public class BinarySearchInInfiniteArray {
         int start = 0;
         int end = 1;
         while (target > arr[end]){
+            
+            // Update the start to be the element just after the old end
             int newStart = end + 1;
-            // Array size if being found here by the bracket logic, and by updating end by this formula, it will grow exponentially
-            end = end + (start - end + 1) * 2;   // Logic is size of new array will be: end - (start -1) => end - start + 1
+
+            // Calculate size of the current box
+            int size = (end - start) + 1; 
+
+            // Update the end by adding (size * 2) to the previous end
+            end = end + (size * 2);
+
             start = newStart;
         }
         return binarySearch(arr, target, start, end);
